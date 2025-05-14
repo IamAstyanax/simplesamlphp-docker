@@ -1,0 +1,72 @@
+{% block preload %}
+<link rel="stylesheet" href="{{ asset('site.css', 'custom-multiauth') }}">
+{% endblock %}
+{% set pagetitle = 'Begin Login' %}
+
+{% extends "base.twig" %}
+
+{% block content %}
+<div class='mid'>
+<div>
+    <h1>{{ 'Single Sign On' }}</h1>
+    <form id="f" name="f">
+        <input type="hidden" name="AuthState" value="{{ authstate }}">
+          <script>
+          const sourcestext = JSON.parse(`{{ sources|json_encode(constant('JSON_PRETTY_PRINT'))|raw }}`);
+          const providers = Object.keys(sourcestext).map((k) => {return { name: k, data: sourcestext[k]}})
+      
+        </script>
+        <div>
+        <div class='formLabel'>
+        <label for='username' id='usernameLabel'>Enter Your District Provided Email Address:</label></div>
+        <input type='email' name='username' id='username' class="edge" autofocus />
+      </div>
+      <br />
+      <div>
+      <input type="submit" id="sourceChoice" value="Continue" class='pure-button'  />
+</div>
+<div id='error'></div>
+   </div>
+    </form>
+    <script>
+      let emailBox =  document.getElementById('username')
+      emailBox.addEventListener('change',(e)=>{
+        let domainFromEmail=emailDomain(e.target.value)
+        //console.log('getting this domain confirmed',domainFromEmail, e.target.checkValidity())
+        if (e.target.checkValidity()){
+        let sourceChoice= document.getElementById("sourceChoice")
+      if (domainFromEmail){
+           sourceChoice.name=`sourceChoice[${domainFromEmail}]`
+           //sourceChoice.value=domainFromEmail
+           let usernameLabel=document.getElementById('usernameLabel')
+           usernameLabel.innerHTML=`Click Continue to log on to ${domainFromEmail}`  
+           //console.log(sourceChoice)
+                  }
+        else{
+          document.getElementById('error').innerHTML ="That domain is not supported."
+          sourceChoice.style.display="none"
+        }
+      }})
+      function emailDomain(email) {
+        let pat=`([0-9a-zA-Z]([-.\w]*[0-9a-zA-Z])*@)`
+        if (email?.match(pat))
+        {
+          //look for a supported domain
+          let domain= `@${email.split('@')[1]}`
+          //console.log(domain, providers.find(i => i.data.text.en == domain))
+          let domainSearch =providers.find(i => i.data.text.en == domain)
+          if ( domainSearch){
+              //console.log('setting the button data',domainSearch.name)
+              document.cookie=`email=${email}; path=/;`
+              return domainSearch.name 
+          }
+          else{
+            return null
+          }
+        }
+        else{return null}
+      }
+
+
+    </script>
+{% endblock %}

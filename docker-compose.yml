@@ -1,0 +1,48 @@
+networks:
+  simplesamlphp-network:
+    name: simplesamlphp-network
+    driver: bridge
+
+services:
+  simplesamlphp:
+    image: astyanax-simplesamlphp
+    container_name: simplesamlphp
+    environment:
+      - CONFIG_STORETYPE=memcache
+    networks:
+      - simplesamlphp-network
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - "80:80"
+      - "443:443"
+
+  memcacheda01:
+    container_name: memcacheda01
+    image: memcached:latest
+    restart: always
+    networks:
+      - simplesamlphp-network
+
+  memcacheda02:
+    container_name: memcacheda02
+    image: memcached:latest
+    restart: always
+    networks:
+      - simplesamlphp-network
+
+  memcachedb01:
+    container_name: memcachedb01
+    image: memcached:latest
+    restart: always
+    networks:
+      - simplesamlphp-network
+
+  memcachedb02:
+    container_name: memcachedb02
+    image: memcached:latest
+    restart: always
+    networks:
+      - simplesamlphp-network

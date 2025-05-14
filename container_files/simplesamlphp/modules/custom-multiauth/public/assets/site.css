@@ -1,0 +1,70 @@
+body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+a {
+    color:#31708F !important;
+    font-weight: bold;
+}
+a:hover{
+    color:#31708F ;
+    background-color: #E3F2F9;
+    background:none !important;
+}
+#header{
+    background: #E3F2F9;
+    height:100px;
+}
+
+#footer{
+    background: #E3F2F9;
+    color:#31708F;
+    height:200px;
+}
+
+.edge{
+    line-height: 1.8em;
+    width:350px;
+}
+
+.pure-button:hover, .pure-button:focus {
+    color: #31708F !important;
+    font-weight: bold;
+    background-color: #E6E6E6;
+}
+
+.formLabel{
+    display:block;
+}
+
+.logo{
+    height:70px;
+}
+#layout{
+    min-height:500px;
+}
+
+.mid{
+    margin:auto;
+    width:400px;
+}
+
+.ph-eye{
+    position:relative; 
+    right:40px; 
+    top: 11px;
+    cursor: pointer;
+}
+.ph-eye:before {
+    content:url(./eye.svg)
+}
+
+.ph-eye-closed{
+    position:relative; 
+    right:40px; 
+    top: 8px;
+    cursor: pointer;
+}
+.ph-eye-closed:before {
+    content:url(./eye-closed.svg)
+}
