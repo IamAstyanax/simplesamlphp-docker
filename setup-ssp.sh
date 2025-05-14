@@ -11,6 +11,8 @@ CERT_FILE="${CERT_DIR}/${DOMAIN}.crt"
 
 # Create output directory if it doesn't exist
 mkdir -p "$CERT_DIR"
+mkdir -p "$CERT_DIR/certs"
+mkdir-p "$CERT_DIR/private"
 
 # Generate private key and certificate
 openssl req -x509 -nodes -newkey rsa:4096 \
