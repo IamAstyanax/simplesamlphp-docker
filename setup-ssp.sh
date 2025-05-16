@@ -33,4 +33,10 @@ rm $CERT_FILE
 
 docker build -t astyanax-simplesamlphp .
 
+echo "Your certificates for SAML based authentication are in ./container_files/certs."
+
+echo -e "Please keep in mind, if you run this setup script again, your certs will change!!"
+
+sleep 6
+
 docker-compose up -d
