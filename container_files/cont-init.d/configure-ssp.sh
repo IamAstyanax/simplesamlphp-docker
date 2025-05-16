@@ -10,7 +10,7 @@ sed -i "s|'technicalcontact_name' => 'Administrator'|'technicalcontact_name' => 
 sed -i "s|'technicalcontact_email' => 'na@example.org'|'technicalcontact_email' => '$CONFIG_TECHNICALCONTACT_EMAIL'|g" /var/simplesamlphp/config/config.php
 # sed -i "s|'language.default' => 'en'|'language.default' => '$CONFIG_LANGUAGEDEFAULT'|g" /var/simplesamlphp/config/config.php
 sed -i "s|'timezone' => null|'timezone' => '$CONFIG_TIMEZONE'|g" /var/simplesamlphp/config/config.php
-sed -i "s|'your.idp.url.org'|'$SIMPLESAMLPHPURL'|g" /var/simplesamlphp/metadata/saml20-idp-hosted.php
+sed -i "s|https://your.idp.url.org|https://$SIMPLESAMLPHPURL|g" /var/simplesamlphp/metadata/saml20-idp-hosted.php
 
 # sed -i "s|'tempdir' => '/tmp/simplesaml'|'tempdir' => '$CONFIG_TEMPDIR'|g" /var/simplesamlphp/config/config.php
 # sed -i "s|'showerrors' => true|'showerrors' => $CONFIG_SHOWERRORS|g" /var/simplesamlphp/config/config.php
