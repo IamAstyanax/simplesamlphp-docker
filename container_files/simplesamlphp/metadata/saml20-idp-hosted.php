@@ -7,8 +7,8 @@ include 'attributes-injection-by-domain.php';
 
 $metadata['https://your.idp.url.org/simplesaml/saml2/idp/metadata.php'] = [
     'host' => '__DEFAULT__',
-    'privatekey' => 'saml.pem',
-    'certificate' => 'saml.crt',
+    'privatekey' => 'ssp.pem',
+    'certificate' => 'ssp.crt',
     'auth' => 'custom=multiauth', // Matches the key in authsources.php
     'userid.attribute' => 'mail',
     'signature.algorithm' => 'http://www.w3.org/2001/04/xmldsig-more#rsa-sha256',
