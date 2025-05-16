@@ -109,8 +109,7 @@ RUN composer require simplesamlphp/simplesamlphp-module-ldap:2.4.6
 RUN mkdir -p /var/simplesamlphp/log && \
     chown -R www-data:www-data /var/simplesamlphp && \
     mkdir -p /var/cache/simplesamlphp/core /var/cache/simplesamlphp/admin && \
-    chown -R www-data:www-data /var/cache/simplesamlphp /var/simplesamlphp/log \
-    chown -R  www-data:www-data /var/simplesamlphp/cert 
+    chown -R www-data:www-data /var/cache/simplesamlphp /var/simplesamlphp/log
 
 # Copy necessary items over
 COPY ./supervisord.conf /etc/supervisor/conf.d/supervisord.conf
