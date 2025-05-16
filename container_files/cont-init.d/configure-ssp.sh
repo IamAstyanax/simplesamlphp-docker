@@ -1,6 +1,6 @@
 #!/bin/bash
 echo "Configuring SimpleSAMLPHP"
-
+chown -R www-data:www-data /var/simplesamlphp/cert/ssp.pem
 # #Apply Configurations
 #sed -i "s|'baseurlpath' => 'simplesaml/'|'baseurlpath' => '$CONFIG_BASEURLPATH'|g" /var/simplesamlphp/config/config.php
 
