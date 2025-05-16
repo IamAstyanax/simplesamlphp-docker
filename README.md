@@ -1,5 +1,5 @@
 # SimpleSAMLPHP in Docker
-SimpleSAMLPHP in docker. Based on debian 12 base image, supervisord, PHP8.2, nginx, and SimpleSAMLPHP 2.4.0.
+SimpleSAMLPHP in docker. Based on debian 12 base image, supervisord, PHP8.2, nginx, and SimpleSAMLPHP 2.4.1.
 
 ## Features and container options specific to this build
 - Custom email address driven multiauth.
