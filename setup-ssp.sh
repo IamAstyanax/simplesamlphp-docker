@@ -26,7 +26,7 @@ echo "  Certificate: $CERT_FILE"
 echo "  Key:         $KEY_FILE"
 
 cp  $KEY_FILE "./container_files/private/ssp.key"
-cp  $KEY_FILE "./container_files/certs/ssp.key"
+cp  $KEY_FILE "./container_files/certs/ssp.pem"
 cp  $CERT_FILE "./container_files/certs/ssp.crt"
 rm $KEY_FILE
 rm $CERT_FILE
