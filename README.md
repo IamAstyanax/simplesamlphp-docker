@@ -84,6 +84,51 @@ I added the bare necessities to get LDAPs or Google based authentication to work
 
 Typing in `test@ldapexample.org` will render the authentication phase, but obviously will not work.
 
+Below is an example of LDAPs configuration. the `connection_string`, `port` `search.base` `search.username` and `search.password` are most important. You can add and remove attributes to grab, these are what we typically request under `attributes`.
+
+Docs: https://simplesamlphp.org/docs/contrib_modules/ldap/ldap.html 
+
+LDAP configuration example:
+
+``````
+    'ldapexample.org' => array(
+        'ldap:Ldap',
+        'description' => 'LDAP EXAMPLE', # DESCRIPTION OF LDAP DOMAIN
+        'connection_string' => 'ldaps://ldaps.example.org', # LDAPS URL
+        'enable_tls' => FALSE,
+        'debug' => FALSE,
+        'timeout' => 10,
+        'port' => 636, # or 389 for non-ssl ldap
+        'referrals' => FALSE,
+        'attributes' => array('sAMAccountName', 'o', 'mail', 'userPrincipalName', 'givenName', 'sn', 'displayName', 'objectClass', 'description', 'telephoneNumber', 'distinguishedName', 'memberOf', 'proxyAddresses', 'homeDirectory', 'employeeID', 'employeeNumber', 'objectCategory'), # add and remove attributes as you see fit
+        'dnpattern' => NULL,
+        'search.enable' => TRUE,
+        'search.base' => ['OU=your,DC=search,DC=dn'], # your Active Directory / OPENLDAP search base
+        'search.attributes' => array('mail'), # we search for mail attribute
+        'search.username' => 'idp@example.org', # YOUR LDAP SEARCH USERNAME
+        'search.password' => 'examplepassword', # YOUR LDAP SEARCH PASSWORD
+        'priv.read' => FALSE,
+        'priv.username' => NULL,
+        'priv.password' => NULL,
+        'help' => array(
+            'en' => 'Generic Help Text'
+        ),
+        'options' => array( 
+            //	LDAP_OPT_X_TLS_REQUIRE_CERT => LDAP_OPT_X_TLS_NEVER,
+                'x_tls_require_cert' => 0,
+                
+            )
+    ),
+
+``````
+
+Google Authentication Example
+
+Official Docs: https://simplesamlphp.org/docs/stable/simplesamlphp-googleapps.html
+
+
+
+
 ## Support the project
 
 https://simplesamlphp.org/
