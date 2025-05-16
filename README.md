@@ -34,6 +34,24 @@ openssl req -x509 -nodes -newkey rsa:2048 \
 
 ## Environment Variables
 
+| Variable                            | Description                                                                                                                           |
+| ----------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+| `CONFIG_AUTHADMINPASSWORD_ARG`      | The password used to access the SimpleSAMLphp web admin interface. This should be strong and secret.                                  |
+| `CONFIG_SECRETSALT_ARG`             | A random string used for cryptographic purposes, such as hashing. Must be unique and kept secret.                                     |
+| `CONFIG_TECHNICALCONTACT_NAME_ARG`  | The name of the technical contact person for the service. Displayed on error or contact pages.                                        |
+| `CONFIG_TECHNICALCONTACT_EMAIL_ARG` | Email address of the technical contact. Used for support or issue reporting.                                                          |
+| `CONFIG_SHOWERRORS_ARG`             | Boolean value (`true`/`false`) that controls whether detailed errors are shown in the web interface. Should be `false` in production. |
+| `CONFIG_ERRORREPORTING_ARG`         | Enables or disables PHP error reporting. Usually set to `true` for debugging and `false` in production.                               |
+| `CONFIG_ADMINPROTECTINDEXPAGE_ARG`  | When `true`, requires authentication to access the admin index page.                                                                  |
+| `CONFIG_ADMINPROTECTMETADATA_ARG`   | When `true`, restricts access to the metadata listing page. Can be `false` in dev/test environments.                                  |
+| `CONFIG_PRODUCTION_ARG`             | Indicates whether the environment is a production environment. Affects behaviors like error reporting.                                |
+| `CONFIG_LOGGINGLEVEL_ARG`           | Sets the level of logging. Common values: `ERROR`, `WARNING`, `NOTICE`, `INFO`, `DEBUG`.                                              |
+| `CONFIG_LOGGINGHANDLER_ARG`         | Defines how logs are handled. Common value is `file`, but could also be `syslog` or custom handlers.                                  |
+| `CONFIG_ENABLESAML20IDP_ARG`        | Enables the SAML 2.0 Identity Provider functionality. Set to `true` if SimpleSAMLphp will act as an IdP.                              |
+| `CONFIG_TIMEZONE`                   | Sets the default PHP timezone. Example: `America/Chicago`.                                                                            |
+| `CONFIG_SIMPLESAMLPHPURL`           | The base URL of the SimpleSAMLphp instance, typically pointing to the IdP or SP endpoint.                                             |
+
+
 ## Attribute injection using PHP
 The attributes in this docker build of SSP uses PHP to inject custom attributes during `authproc`. The authproc is configured at `/container_files/simplesamlphp/metadata/saml20-idp-hosted.php`
 
