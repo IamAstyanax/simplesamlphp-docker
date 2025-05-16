@@ -7,7 +7,7 @@ SimpleSAMLPHP in docker. Based on debian 12 base image, supervisord, PHP8.2, ngi
 
 ## How to build
 
-You will need a modern linux environment with docker and docker-compose installed.
+You will need a modern linux environment with git, docker, and docker-compose installed.
 
 Clone repository:
 
