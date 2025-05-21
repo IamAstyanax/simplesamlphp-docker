@@ -29,7 +29,6 @@ a:hover{
 
 .pure-button:hover, .pure-button:focus {
     color: #31708F !important;
-    font-weight: bold;
     background-color: #E6E6E6;
 }
 
