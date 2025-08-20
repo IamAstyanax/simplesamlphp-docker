@@ -28,12 +28,12 @@ This will generate self signed certificates, start memcache containers, and star
 Running this without modification assumes you are going to run Simplesaml behind a load balancer for SSL termination. If you are not, I would recommend checking out `acme.sh` for certificate management.
 
 ## Generate Self Signed Certificate and Key
-openssl req -x509 -nodes -newkey rsa:2048 \
+```openssl req -x509 -nodes -newkey rsa:2048 \
   -keyout ./container_files/certs/ssp.key \
   -out ./container_files/certs/ssp.crt \
   -days 365 \
   -subj "/C=US/ST=State/L=City/O=Organization/CN=yourdomain.com"
-
+```
 ## Environment Variables
 
 | Variable                            | Description                                                                                                                           |
