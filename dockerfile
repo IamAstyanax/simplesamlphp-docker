@@ -2,7 +2,7 @@ FROM debian:12
 
 # Define SSP version
 ARG SSP_VERSION=2.4.1
-
+#
 ARG DEBIAN_FRONTEND=noninteractive
 
 #ARG CONFIG_BASEURLPATH=simplesaml/

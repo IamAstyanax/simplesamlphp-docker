@@ -3,7 +3,7 @@ echo "Configuring SimpleSAMLPHP"
 chown -R www-data:www-data /var/simplesamlphp/cert/ssp.pem
 # #Apply Configurations
 #sed -i "s|'baseurlpath' => 'simplesaml/'|'baseurlpath' => '$CONFIG_BASEURLPATH'|g" /var/simplesamlphp/config/config.php
-
+#
 sed -i "s|'auth.adminpassword' => 'yeet'|'auth.adminpassword' => '$CONFIG_AUTHADMINPASSWORD'|g" /var/simplesamlphp/config/config.php
 sed -i "s|'secretsalt' => 'defaultsecretsalt'|'secretsalt' => '${CONFIG_SECRETSALT}'|g" /var/simplesamlphp/config/config.php
 sed -i "s|'technicalcontact_name' => 'Administrator'|'technicalcontact_name' => '$CONFIG_TECHNICALCONTACT_NAME'|g" /var/simplesamlphp/config/config.php

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ## Generate Certs
-
+#
 # Set certificate details
 DOMAIN="simplesaml.local"
 DAYS_VALID=1825
